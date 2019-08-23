@@ -1,0 +1,430 @@
+div.header{
+    min-width: 1000px;
+}
+div.contentMy{
+    background-image: url('../images/0.jpg');
+    background-size: cover;
+    min-width: 1000px;
+    min-height: 80%;
+    text-align: center;
+    float:center;
+    overflow:hidden;
+}
+
+div.loginform{
+    background-color: #ffffff;
+    padding: 5px;
+    opacity: 0.9;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 10px auto;
+    min-width: 400px;
+    max-width: 500px;
+    min-height: 200px;
+    max-height: 800px;
+}
+
+label.logintext {
+    font-size: 16px;
+    color: darkgray;
+}
+
+input.upload-photo {
+    display: none;
+}
+
+label.upload{
+    color: #ffffff;
+}
+
+.profileimages {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.slideimage img{
+    width: 600; height: 600px; object-fit: cover;
+}
+
+.slide{
+    position: relative;
+}
+
+.slidetext{
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    padding: 20px 0;
+}
+
+.slideheading , .slidedescription{
+    margin: 0;
+    padding: 0 10px;
+}
+
+
+div.leftblock{
+	display: inline-block;
+	width: 35%;
+	min-height: 500px	;
+	min-width: 250px;
+    visibility: hidden;
+}
+div.rightblock{
+  display: inline-block;
+  width: 15%;
+  min-height: 500px ;
+  min-width: 180px;
+}
+div.footer{
+    min-width:1000px;
+}
+div.photo{
+	display: inline-block;
+	float: center;
+}
+#logsub{
+	color:#fff;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	position: relative;
+ 	top: 25%;
+
+}
+::-webkit-file-upload-button {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+  background-color: rgba(255, 255, 255, 0.45);
+  visibility: hidden;
+}
+        #content {
+            height: 450px;
+            width: 450px;
+            overflow: hidden;
+            position: relative;
+            margin-left: auto;
+ 			      margin-right: auto;
+            float:center;
+        }
+
+        #imgs {
+            float: left;
+            display: inline;
+            padding: 0;
+            margin: 0;
+
+            transition-property: transform;
+            transition-duration: 0.5s;
+            transition-timing-function: ease-out;
+
+            /*apply a transform to kick in the hardware acceleration.  Without this, the first
+            time we add the transform you get odd rendering of the divs (half missing) */
+            transform: translate(0, 0);
+        }
+        #imgs[rel="1"] {
+        	width:450px;
+   /* woohoo! */
+		}
+		#imgs[rel="2"] {
+        	width:900px;
+   /* woohoo! */
+		}
+		#imgs[rel="3"] {
+        	width:1350px;
+   /* woohoo! */
+		}
+		#imgs[rel="4"] {
+        	width:1800px;
+   /* woohoo! */
+		}
+        #imgs[rel="5"] {
+        	width:2150px;
+   /* woohoo! */
+		}
+		#imgs[rel="6"] {
+        	width:2500px;
+   /* woohoo! */
+		}
+
+        #imgs img {
+            padding: 0;
+            margin: 0;
+            /*width: 600px;*/
+            height: 450px;
+
+            /*apply a transform to kick in the hardware acceleration.  Without this, the first
+            time we add the transform you get odd rendering of the divs (half missing) */
+            transform: translate(0, 0);
+        }
+  div.matches{
+    background-image: url('../images/0.jpg');
+    background-size: cover;
+    min-width: 1000px;
+    min-height: 80%;
+    float:center;
+  /*
+	display:inline-block; 
+	width: 35%;
+	margin-right: 37%;
+	text-align:center;
+	padding: 50px;	*/
+}
+/*ul li {
+	display: inline-block;
+	margin-right: 5px;
+	border-right: 1px solid black;
+	padding: 5px;
+	transition: 1s;
+}
+
+ul li:hover {
+	background: red;
+}*/
+
+/* ------- Reset ------- */
+
+/* ------- The main content ------- */
+
+
+
+/* ------- The main content ------- */
+
+.shoutbox {
+  padding-top:50px;
+  display:inline-block;
+  width: 500px;
+  min-height: 80%;
+  padding-top:50px;;
+}
+
+div.chath1 {
+    background-color:  #87bfef;
+    box-shadow: 0px 1px 1px 0.00px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: relative;
+    height: 46px;
+    text-align: left;
+    margin: 0;
+    padding-left: 20px;
+    color:  #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 46px;
+}
+
+div.chath1 img {
+    position: absolute;
+    top: 13px;
+    right: 35px;
+    width: 17px;
+    height: 18px;
+    float:right;
+    cursor: pointer;
+}
+
+/* ------- The comments content ------- */
+
+.shoutbox-content {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color:  #df377a;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.shoutbox-content li {
+    padding: 20px;
+    border-bottom: 1px solid #d5dbe1;
+}
+
+.shoutbox-username {
+    display: inline;
+    color:  #df377a;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.shoutbox-comment {
+    display: inline;
+    color:  #717c87;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+}
+
+.shoutbox-comment-details {
+    width: 100%;
+    margin: 5px auto;
+    height: 11px;
+}
+
+.shoutbox-comment-reply {
+    display: inline-block;
+    float: left;
+    color:  #5896cb;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: left;
+    height: 9px;
+    cursor: pointer;
+}
+
+.shoutbox-comment-ago {
+    display: inline-block;
+    float: right;
+    color:  #9aa1a7;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: right;
+    height: 11px;
+}
+
+
+/* ------- Writing a new comment form ------- */
+
+h2#chat{
+    position: relative;
+    background-color:  #f9fafb;
+    border-bottom: 2px solid #e2e8eb;
+    max-width: 100%;
+    height: 45px;
+    margin: 0;
+    text-align: center;
+    color:  #df377a;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+h2#chat span {
+    display: none;
+    position: absolute;
+    float: right;
+    right: 13px;
+    font-size: 22px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 20px;
+}
+
+.shoutbox-form form {
+    display: none;
+    background-color:  #f9fafb;
+    box-shadow: 0px 2px 0px 0.00px #e2e8eb;
+    max-width: 100%;
+    text-align: left;
+    padding: 20px 20px 30px;
+}
+
+.shoutbox-form form label {
+    display: inline-block;
+    color:  #df377a;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    width: 80px;
+    height: 11px;
+    line-height: 11px;
+    margin-bottom: 15px;
+}
+
+.shoutbox-form form .shoutbox-comment-label {
+    position: relative;
+    top: -75px;
+}
+
+.shoutbox-form form #shoutbox-name {
+    display: inline-block;
+    background-color: #ffffff;
+    box-shadow: 1px 3px 0px 0.00px rgba(0, 0, 0, 0.04);
+    border: 1px solid #bfcdda;
+    outline: none;
+    max-width: 170px;
+    width: 100%;
+    height: 41px;
+    font-size: 14px;
+    margin-right: 150px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color:inherit;
+}
+
+.shoutbox-form form #shoutbox-comment {
+    background-color: #ffffff;
+    box-shadow: 1px 3px 0px 0.00px rgba(0, 0, 0, 0.04);
+    border: 1px solid #bfcdda;
+    outline: none;
+    max-width: 320px;
+    width: 100%;
+    height: 76px;
+    margin-bottom: 20px;
+    resize: none;
+    font-weight: normal;
+    font: inherit;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
+    color:inherit;
+}
+
+.shoutbox-form form input[type=submit] {
+    background-color: #87bfef;
+    border: 1px solid #e6e7e8;
+    box-shadow: 0px 1px 2px 0.00px rgba(0, 0, 0, 0.1);
+    width: 110px;
+    height: 41px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 38px;
+    outline: none;
+    margin-left: 83px;
+    cursor: pointer;
+}
+
+
+/* ------- Make the page responsive ------- */
+
+@media(max-width: 445px) {
+    .shoutbox-form form .shoutbox-comment-label {
+        top: 0;
+    }
+    .shoutbox-form form input[type=submit] {
+        margin-left: 0;
+    }
+}
+
+
+/* ------- Demo footer. Please ignore and remove ------- */
+
