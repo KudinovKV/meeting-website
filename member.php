@@ -1,8 +1,10 @@
-<?php
-    session_start();
 
-    if(!isset($_SESSION['UID'])) 
-	{
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<?php
+    session_start();    
+    if(!isset($_SESSION['UID']))
+    {
         header("Location: index.php");
         exit();
     }
@@ -16,21 +18,19 @@
         header("Location: index.php");
         exit();
     }
-    
     session_write_close();
-
     include_once "header.php";
 ?>
 
 <div class="contentMy">
-    <?php 
-        session_start();
-        print_r($_SESSION) ; 
-        print_r(session_id());
-        session_write_close();
-    ?>
+  <div class="futurepartner" id="main">
+  </div>
 </div>
 
 <?php
     include_once "footer.php";
 ?>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="slick/slick.min.js"></script>
+<script src="javascript/drawProfilePhotos.js"></script>
