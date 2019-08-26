@@ -3,7 +3,6 @@ div.header{
 }
 div.contentMy{
     background-image: url('../images/0.jpg');
-    background-size: cover;
     min-width: 1000px;
     min-height: 80%;
     text-align: center;
@@ -36,11 +35,15 @@ input.upload-photo {
     display: none;
 }
 
+.unvisible{
+    style: none;
+}
+
 label.upload{
     color: #ffffff;
 }
 
-.profileimages {
+.profileimages, .futurepartner {
     max-width: 600px;
     margin: 20px auto;
 }
