@@ -3,6 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="http://localhost:8000/KeepUp/css/style.css">
 	<link rel="stylesheet" type="text/css" href="http://localhost:8000/KeepUp/css/materialize.css">
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/emojione/1.3.0/assets/css/emojione.min.css"/>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <?php 
@@ -56,6 +57,5 @@
   </nav>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="http://localhost:8000/KeepUp/javascript/materialize.js"></script>
-  <script src="http://localhost:8000/KeepUp/javascript/init.js"></script>
 </div>
 
