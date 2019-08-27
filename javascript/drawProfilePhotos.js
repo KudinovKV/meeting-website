@@ -1,8 +1,10 @@
 
 
+var ID;
+
 $.ajax({
     type: "POST",
-    url: "fururepartner-handler.php",
+    url: "futurepartner-handler.php",
     data:"ACTION=GETID",
     success:function(id)
     {
@@ -13,7 +15,8 @@ $.ajax({
             alert(id);
             window.location.href = "index.php";
         }
-        getPaths(id);     
+        ID = id;
+        getPaths(id);
     }
 });
 
@@ -31,16 +34,44 @@ $('.futurepartner').on('swipe', function(event, slick, direction){
     else if(currentSlide == nextSlide && direction == 'left')
     {
         //window.location.href = "like.php";
-        alert('LIKE');
+        SafeSwipe('LIKE');
     }
     else if(currentSlide == nextSlide && direction == 'right')
     {
-      alert('DISLIKE');
+        SafeSwipe('DISLIKE');
     }
     else{
       currentSlide = nextSlide;
     }
 });
+
+function SafeSwipe(action){
+    $.ajax({
+    type: "POST",
+    url: "futurepartner-handler.php",
+    data:{
+        ACTION:"SETSWIPE",
+        SAFESWIPE:action,
+        CURRENTID:ID
+    },
+    success:function(msg)
+    {
+        if(msg == 'Correct')
+        {
+            // Доделать
+            if(action == 'LIKE'){
+                alert('You have a match with' . msg);
+            }
+        }
+        else{
+            // Error
+            alert(msg);
+        }
+    }
+    });
+}
+
+
 
 function initSlider(){
     $('.futurepartner').slick({
@@ -59,7 +90,7 @@ function initSlider(){
 function getPaths(id){
     $.ajax({
             type: "POST",
-            url: "fururepartner-handler.php",
+            url: "futurepartner-handler.php",
             data:{
                 ACTION: "GETPATHS" ,
                 ID: id
