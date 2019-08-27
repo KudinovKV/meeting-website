@@ -24,9 +24,6 @@ if(mb_strlen($password) < 3 || mb_strlen($password) > 30)
     exit();
 }
 $password = md5($password."ashkdhasdhkhad212312");
-$gender = 1;
-if ($_POST['gender'] == 'Women')
-    $gender = 0;
 // Connect with db
 $mysql = new mysqli('localhost' , 'root' , '1234' , 'sitedb');
 // password
@@ -61,6 +58,20 @@ if ($mysql->error)
 }
 // birthday
 $mysql->query("UPDATE info SET birthday='".$_POST['birthday']."' WHERE id='".$_SESSION['UID']."'");
+if ($mysql->error)
+{
+  $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
+  $mysql->close();
+  session_write_close();
+  header("Location: profile.php");
+  exit();
+}
+// gender
+$gender = 1;
+if ($_POST['gender'] == 'Women')
+    $gender = 0;
+$_SESSION['GENDER'] = $gender;
+$mysql->query("UPDATE info SET gender='".$gender."' WHERE id='".$_SESSION['UID']."'");
 if ($mysql->error)
 {
   $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
@@ -124,8 +135,12 @@ if($_POST['deletepastphoto'] == 'yes')
 /*=========================================== Load user images ===========================================*/
 
 
-
-
+if($_POST['deletepastphoto'] == 'no' && $_FILES['profileimage'][0]['error'] == UPLOAD_ERR_NO_FILE)
+{
+  session_write_close();
+  header("Location: profile.php");
+  exit();
+}
 
 // Загружаем все картинки по порядку
 foreach ($_FILES['profileimage'] as $k => $v)
