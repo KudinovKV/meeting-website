@@ -1,15 +1,16 @@
 div.header{
     min-width: 1000px;
 }
-div.contentMy{
-    background-image: url('../images/0.jpg');
-    min-width: 1000px;
-    min-height: 80%;
-    text-align: center;
-    float:center;
-    overflow:hidden;
+div.contentMy{ 
+    background-image: url('../0.jpg'); 
+    background-attachment: fixed; 
+    ​​​​​​​background-repeat: no-repeat; 
+    min-width: 1000px; 
+    min-height: 80%; 
+    text-align: center; 
+    float:center; 
+    overflow:hidden; 
 }
-
 div.loginform{
     background-color: #ffffff;
     padding: 5px;
@@ -23,7 +24,7 @@ div.loginform{
     min-width: 400px;
     max-width: 500px;
     min-height: 200px;
-    max-height: 800px;
+    max-height: 1000px;
 }
 
 label.logintext {
@@ -60,7 +61,7 @@ label.upload{
     position: absolute;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    width: 100%;
+    width: 600px;
     color: #fff;
     text-align: center;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
@@ -178,19 +179,19 @@ div.photo{
             time we add the transform you get odd rendering of the divs (half missing) */
             transform: translate(0, 0);
         }
-  div.matches{
+  /*div.matches{
     background-image: url('../images/0.jpg');
     background-size: cover;
     min-width: 1000px;
     min-height: 80%;
     float:center;
-  /*
+  
 	display:inline-block; 
 	width: 35%;
 	margin-right: 37%;
 	text-align:center;
-	padding: 50px;	*/
-}
+	padding: 50px;	
+}*/
 /*ul li {
 	display: inline-block;
 	margin-right: 5px;
@@ -381,7 +382,9 @@ h2#chat span {
     box-sizing: border-box;
     color:inherit;
 }
-
+.search_text{
+    color:#FFFFFF;
+}
 .shoutbox-form form #shoutbox-comment {
     background-color: #ffffff;
     box-shadow: 1px 3px 0px 0.00px rgba(0, 0, 0, 0.04);

@@ -1,0 +1,62 @@
+div.matches{
+    background-color:#FFFFFF;
+    padding: 5px;
+    opacity: 0.9;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 10px auto;
+    width: 700px;
+}
+div.searchTextView{
+    width: 300px;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 10px auto;
+
+}
+
+
+
+.onematch{
+    position: relative;
+    margin-bottom : 10px;
+}
+
+img.matchimages{
+    width: 600; height: 600px; object-fit: cover;
+}
+
+.matchtext{
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 600px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    padding: 20px 0;
+    margin-left: 45px;
+    margin-bottom: 90px;
+}
+.matchtextinfo{
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 600px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    padding: 20px 0;
+    margin-left: 45px;
+}
+
+.matchheading , .matchdescription{
+    margin: 0;
+    padding: 0 10px;
+}
