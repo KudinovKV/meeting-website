@@ -22,12 +22,20 @@
     include_once "header.php";
 ?>
 
-<div class="contentMy">
+<div class="contentMy" id="fathermain">
   <div class="futurepartner" id="main">
   </div>
 </div>
 
 <?php
+    session_start();
+    if (isset($_SESSION['numlikes']))
+    {
+        echo "<script>alert(\"You have ".$_SESSION['numlikes']." new likes! Lets look who is it!\");</script>";
+        unset($_SESSION['numlikes']);
+    }
+    session_write_close();
+
     include_once "footer.php";
 ?>
 

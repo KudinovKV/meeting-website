@@ -12,83 +12,95 @@ session_start();
 /*=========================================== Load user info ===========================================*/
 
 // Create request to db
-$password = filter_var(trim($_POST['password']) , FILTER_SANITIZE_STRING);
 $firstname = filter_var(trim($_POST['firstname']) , FILTER_SANITIZE_STRING);
 $lastname = filter_var(trim($_POST['lastname']) , FILTER_SANITIZE_STRING);
 $aboutyou = filter_var(trim($_POST['aboutyou']) , FILTER_SANITIZE_STRING);
-if(mb_strlen($password) < 3 || mb_strlen($password) > 30)
+// Connect with db
+$mysql = new mysqli('localhost' , 'root' , '1234' , 'sitedb');
+// firstname
+if ($stmt = mysqli_prepare($mysql, "UPDATE info SET firstname=? WHERE id=?"))
 {
-    $_SESSION['ERROR_MESSAGE'] = 'Uncorrect password(valid length is 3-30 characters)';
+  mysqli_stmt_bind_param($stmt, "si", $firstname, $_SESSION['UID']);
+  mysqli_stmt_execute($stmt);
+  $result = $stmt->get_result();
+  mysqli_stmt_close($stmt);
+  if ($mysql->error)
+  {
+    $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
+    $mysql->close();
     session_write_close();
     header("Location: profile.php");
     exit();
-}
-$password = md5($password."ashkdhasdhkhad212312");
-// Connect with db
-$mysql = new mysqli('localhost' , 'root' , '1234' , 'sitedb');
-// password
-$mysql->query("UPDATE info SET password='".$password."' WHERE id='".$_SESSION['UID']."'");
-if ($mysql->error)
-{
-  $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
-  $mysql->close();
-  session_write_close();
-  header("Location: profile.php");
-  exit();
-}
-// firstname
-$mysql->query("UPDATE info SET firstname='".$firstname."' WHERE id='".$_SESSION['UID']."'");
-if ($mysql->error)
-{
-  $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
-  $mysql->close();
-  session_write_close();
-  header("Location: profile.php");
-  exit();
+  }
 }
 // lastname
-$mysql->query("UPDATE info SET lastname='".$lastname."' WHERE id='".$_SESSION['UID']."'");
-if ($mysql->error)
+if ($stmt = mysqli_prepare($mysql, "UPDATE info SET lastname=? WHERE id=?"))
 {
-  $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
-  $mysql->close();
-  session_write_close();
-  header("Location: profile.php");
-  exit();
+  mysqli_stmt_bind_param($stmt, "si", $lastname, $_SESSION['UID']);
+  mysqli_stmt_execute($stmt);
+  $result = $stmt->get_result();
+  mysqli_stmt_close($stmt);
+  if ($mysql->error)
+  {
+    $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
+    $mysql->close();
+    session_write_close();
+    header("Location: profile.php");
+    exit();
+  }
 }
 // birthday
-$mysql->query("UPDATE info SET birthday='".$_POST['birthday']."' WHERE id='".$_SESSION['UID']."'");
-if ($mysql->error)
+if ($stmt = mysqli_prepare($mysql, "UPDATE info SET birthday=? WHERE id=?"))
 {
-  $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
-  $mysql->close();
-  session_write_close();
-  header("Location: profile.php");
-  exit();
+  mysqli_stmt_bind_param($stmt, "si", $_POST['birthday'], $_SESSION['UID']);
+  mysqli_stmt_execute($stmt);
+  $result = $stmt->get_result();
+  mysqli_stmt_close($stmt);
+  if ($mysql->error)
+  {
+    $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
+    $mysql->close();
+    session_write_close();
+    header("Location: profile.php");
+    exit();
+  }
 }
 // gender
 $gender = 1;
-if ($_POST['gender'] == 'Women')
+if ($_POST['gender'] == 'Woman')
     $gender = 0;
 $_SESSION['GENDER'] = $gender;
-$mysql->query("UPDATE info SET gender='".$gender."' WHERE id='".$_SESSION['UID']."'");
-if ($mysql->error)
+if ($stmt = mysqli_prepare($mysql, "UPDATE info SET gender=? WHERE id=?"))
 {
-  $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
-  $mysql->close();
-  session_write_close();
-  header("Location: profile.php");
-  exit();
+  mysqli_stmt_bind_param($stmt, "ii", $gender, $_SESSION['UID']);
+  mysqli_stmt_execute($stmt);
+  $result = $stmt->get_result();
+  mysqli_stmt_close($stmt);
+  $mysql->query("UPDATE info SET gender='".$gender."' WHERE id='".$_SESSION['UID']."'");
+  if ($mysql->error)
+  {
+    $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
+    $mysql->close();
+    session_write_close();
+    header("Location: profile.php");
+    exit();
+  }
 }
 // aboutyou
-$mysql->query("UPDATE info SET aboutyou='".$aboutyou."' WHERE id='".$_SESSION['UID']."'");
-if ($mysql->error)
+if ($stmt = mysqli_prepare($mysql, "UPDATE info SET aboutyou=? WHERE id=?"))
 {
-  $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
-  $mysql->close();
-  session_write_close();
-  header("Location: profile.php");
-  exit();
+  mysqli_stmt_bind_param($stmt, "si", $aboutyou, $_SESSION['UID']);
+  mysqli_stmt_execute($stmt);
+  $result = $stmt->get_result();
+  mysqli_stmt_close($stmt);
+  if ($mysql->error)
+  {
+    $_SESSION['ERROR_MESSAGE'] = 'Error then update account: '. $mysql->error;
+    $mysql->close();
+    session_write_close();
+    header("Location: profile.php");
+    exit();
+  }
 }
 $mysql->close();
 
@@ -211,8 +223,8 @@ foreach ($_FILES['profileimage'] as $k => $v)
         header("Location: profile.php");
         exit();
     }
-    // Сгенерируем новое имя файла на основе MD5-хеша
-    $name = md5_file($filePath);
+    // Сгенерируем новое имя файла на основе SHA512-хеша
+    $name = hash_file( "sha512" , $filePath);
     // Сгенерируем расширение файла на основе типа картинки
     $extension = image_type_to_extension($image[2]);
     // Сократим .jpeg до .jpg

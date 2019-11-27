@@ -17,5 +17,4 @@
 
 <?php include_once "footer.php" ?>
 <script src="javascript/materialize.js"></script>
-<script src="javascript/courusel.js"></script>
 </html>
